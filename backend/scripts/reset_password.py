@@ -2,7 +2,7 @@
 
 from getpass import getpass
 
-import backend.app.database as db
+from app import database as db
 
 
 def main():

@@ -1,6 +1,6 @@
 """Reset the local SQLite databases and add demo data."""
 
-import backend.app.database as db
+from app import database as db
 
 
 PROJECTS = [

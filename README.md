@@ -33,19 +33,19 @@ projectmatch/
 │   ├── scripts/
 │   │   ├── reset_password.py
 │   │   └── seed.py
-│   ├── requirements.txt
+│   ├── pyproject.toml
 │   └── run.py
 └── frontend/
     ├── src/
     │   ├── pages/            # Page-specific JavaScript
-│   │   ├── shared/           # Shared frontend modules
-│   │   ├── assets/
-│   │   ├── data/
-│   │   ├── main.js
-│   │   └── style.css
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
+    │   ├── shared/           # Shared frontend modules
+    │   ├── assets/
+    │   ├── data/
+    │   ├── main.js
+    │   └── style.css
+    ├── index.html
+    ├── package.json
+    └── vite.config.js
 ```
 
 ## Prerequisites
@@ -64,7 +64,7 @@ From the project root:
 
 ```sh
 cd backend
-uv run --isolated --python 3.15 --with-requirements requirements.txt python run.py
+uv run --python 3.15 python run.py
 ```
 
 The backend runs at <http://127.0.0.1:5001>. Keep this terminal open.
@@ -93,8 +93,7 @@ These files contain local development data. Back them up if you need to preserve
 The demo seed script **deletes and recreates both databases** before adding demo data. Only run it if you are okay replacing the current local data. From the `backend/` directory, run:
 
 ```sh
-PYTHONPATH=app uv run --isolated --python 3.15 \
-  --with-requirements requirements.txt python scripts/seed.py
+uv run --python 3.15 python -m scripts.seed
 ```
 
 ## Troubleshooting
