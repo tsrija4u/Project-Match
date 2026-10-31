@@ -1,5 +1,5 @@
 import './style.css';
-import { loadAccountNav } from './auth-nav.js';
+import { loadAccountNav } from './shared/auth-nav.js';
 
 document.getElementById("find-project")?.addEventListener("click", () => {
     window.location.href = "discover.html";
