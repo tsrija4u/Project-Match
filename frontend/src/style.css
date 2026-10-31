@@ -1276,6 +1276,53 @@ button {
     opacity: 0.85;
 }
 
+.account-menu {
+    position: relative;
+}
+
+.account-avatar {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.account-dropdown {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 200px;
+    padding: 8px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.account-dropdown[hidden] {
+    display: none;
+}
+
+.account-dropdown a,
+.account-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #374151;
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.account-dropdown a:hover,
+.account-dropdown button:hover {
+    background: #f3f4f6;
+}
+
 .signup-nav-button {
     padding: 10px 18px;
 
