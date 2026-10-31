@@ -1,5 +1,7 @@
-import './style.css';
+import '../style.css';
+import { loadAccountNav } from '../shared/auth-nav.js';
 
+loadAccountNav();
 
 const form =
     document.getElementById("project-form");

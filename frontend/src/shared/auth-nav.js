@@ -48,10 +48,6 @@ export async function loadAccountNav() {
                 .toUpperCase();
 
         authNav.innerHTML = `
-            <a href="post-project.html">
-                Post a Project
-            </a>
-
             <a
                 href="profile.html"
                 class="account-avatar"

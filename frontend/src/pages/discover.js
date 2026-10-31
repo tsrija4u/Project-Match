@@ -1,6 +1,6 @@
-import './style.css';
-import { loadAccountNav } from './auth-nav.js';
-import { escapeHtml } from './html.js';
+import '../style.css';
+import { loadAccountNav } from '../shared/auth-nav.js';
+import { escapeHtml } from '../shared/html.js';
 
 loadAccountNav();
 

@@ -1,5 +1,8 @@
-import './style.css';
-import { escapeHtml } from './html.js';
+import '../style.css';
+import { escapeHtml } from '../shared/html.js';
+import { loadAccountNav } from '../shared/auth-nav.js';
+
+loadAccountNav();
 
 
 // GET STUDENT ID FROM URL
