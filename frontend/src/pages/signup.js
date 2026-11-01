@@ -11,6 +11,29 @@ const signupForm =
 const errorMessage =
     document.getElementById("signup-error");
 
+const passwordInput = document.getElementById("password");
+const checklist = document.getElementById("password-checklist");
+
+const passwordRules = {
+    length: value => value.length >= 8,
+    uppercase: value => /[A-Z]/.test(value),
+    lowercase: value => /[a-z]/.test(value),
+    number: value => /\d/.test(value),
+    special: value => /[^A-Za-z0-9\s]/.test(value)
+};
+
+function updatePasswordChecklist() {
+    for (const [rule, check] of Object.entries(passwordRules)) {
+        const item = checklist.querySelector(`[data-rule="${rule}"]`);
+        const passed = check(passwordInput.value);
+
+        item.classList.toggle("is-met", passed);
+        item.querySelector("span").textContent = passed ? "✓" : "○";
+    }
+}
+
+passwordInput.addEventListener("input", updatePasswordChecklist);
+
 
 signupForm.addEventListener(
     "submit",
@@ -22,11 +45,11 @@ signupForm.addEventListener(
             "none";
 
 
-        const username =
-            document
-                .getElementById("username")
-                .value
-                .trim();
+        const email = document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
 
         const password =
             document
@@ -55,7 +78,7 @@ signupForm.addEventListener(
 
 
         const signupData = {
-            username,
+            username: email,
             password
         };
 

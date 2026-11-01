@@ -62,6 +62,7 @@ export async function loadAccountNav() {
                 <div class="account-dropdown" id="account-dropdown" hidden>
                     <a href="profile.html">Edit Profile</a>
                     <button type="button">Log Out</button>
+                    <button type="button" class="account-delete">Delete Account</button>
                 </div>
             </div>
         `;
@@ -92,6 +93,34 @@ export async function loadAccountNav() {
             } catch (error) {
                 console.error("Could not log out:", error);
                 alert("Could not log out. Please try again.");
+            }
+        });
+
+        const deleteAccountButton = authNav.querySelector(".account-delete");
+
+        deleteAccountButton.addEventListener("click", async () => {
+            const confirmed = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+            if (!confirmed) {
+                return;
+            }
+
+            try {
+                const response =
+                    await fetch("/api/me", {
+                        method: "DELETE",
+                        credentials: "include"
+                    });
+                    
+                if (!response.ok) {
+                    throw new Error(
+                        `Delete account failed with status ${response.status}`
+                    );
+                }
+
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Could not delete account:", error);
+                alert("Could not delete account. Please try again.");
             }
         });
 

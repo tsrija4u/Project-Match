@@ -332,3 +332,10 @@ def update_user(user_id, data):
                 [(user_id, value) for value in _unique_values(values)],
             )
     return get_user(user_id)
+
+def delete_user(user_id):
+    with db_connection(PROJECTS_DB) as connection:
+        connection.execute("DELETE FROM projects WHERE owner_id = ?", (user_id,))
+    with db_connection(USERS_DB) as connection:
+        cursor = connection.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        return cursor.rowcount == 1

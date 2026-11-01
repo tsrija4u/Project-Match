@@ -45,15 +45,15 @@
 
                     <div class="form-group">
 
-                        <label for="username">
-                            Username
+                        <label for="email">
+                            Email
                         </label>
 
                         <input
-                            type="text"
-                            id="username"
+                            type="email"
+                            id="email"
                             required
-                            autocomplete="username"
+                            autocomplete="email"
                         >
 
                     </div>
@@ -68,10 +68,21 @@
                         <input
                             type="password"
                             id="password"
-                            minlength="6"
+                            minlength="8"
                             required
                             autocomplete="new-password"
                         >
+
+                        <div class="password-requirements">
+                            <p>Password must include:</p>
+                            <ul id="password-checklist">
+                                <li data-rule="length"><span>○</span> At least 8 characters</li>
+                                <li data-rule="uppercase"><span>○</span> One uppercase letter</li>
+                                <li data-rule="lowercase"><span>○</span> One lowercase letter</li>
+                                <li data-rule="number"><span>○</span> One number</li>
+                                <li data-rule="special"><span>○</span> One special character</li>
+                            </ul>
+                        </div>
 
                     </div>
 
@@ -85,7 +96,7 @@
                         <input
                             type="password"
                             id="confirm-password"
-                            minlength="6"
+                            minlength="8"
                             required
                             autocomplete="new-password"
                         >

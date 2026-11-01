@@ -314,5 +314,28 @@ def logout():
         "message": "Logged out successfully"
     })
 
+@app.delete("/api/me")
+def delete_current_user():
+
+    user_id = session.get("user_id")
+
+    if user_id is None:
+        return jsonify({
+            "error": "Not logged in"
+        }), 401
+
+    deleted = db.delete_user(user_id)
+
+    if not deleted:
+        return jsonify({
+            "error": "User not found"
+        }), 404
+
+    session.clear()
+
+    return jsonify({
+        "message": "User account deleted successfully"
+    })
+
 if __name__ == "__main__":
     app.run(debug=os.environ.get("FLASK_DEBUG") == "1", port=5001)

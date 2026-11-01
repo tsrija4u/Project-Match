@@ -711,6 +711,42 @@ button {
     color: #9ca3af;
 }
 
+.password-requirements {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.password-requirements p {
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+
+.password-requirements ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.password-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.password-requirements li span {
+    width: 18px;
+    color: #9ca3af;
+    font-weight: 700;
+    text-align: center;
+}
+
+.password-requirements li.is-met,
+.password-requirements li.is-met span {
+    color: #15803d;
+}
 
 .form-row {
     display: grid;
